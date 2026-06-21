@@ -134,10 +134,10 @@
       "type": "sponsors",
       "title": "Vores sponsorer",
       "icon": "🤝",
-      "items": [
-        { "label": "", "value": "Give Steel" },
-         { "label": "", "value": "Danish Bottling" },
-         { "label": "", "value": "Vestjysk Bank" }
+      "sponsors": [
+        { "name": "Give Steel A/S", "logo": "https://huk-tti-brande.dk/resources/cms/images/8d0e25186bc464a3bc027f30c8b8abf1.jpg" },
+        { "name": "Vestjysk Bank", "logo": "https://huk-tti-brande.dk/resources/cms/images/fc241d0610dc9e6ad638b30e3a61b1c3.jpg" },
+        { "name": "Danish Bottling", "logo": "" }
       ],
       "active": true
     }

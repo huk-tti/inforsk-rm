@@ -8,13 +8,14 @@
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap');
 
   :root {
-    --primary: #0a1628;
+    --primary: #2b2b2b;
+    --primary-darker: #1f1f1f;
     --accent: #c8102e;
     --gold: #f0b429;
     --text: #ffffff;
     --muted: rgba(255,255,255,0.6);
-    --card-bg: rgba(255,255,255,0.06);
-    --border: rgba(255,255,255,0.1);
+    --card-bg: rgba(255,255,255,0.05);
+    --border: rgba(255,255,255,0.12);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -180,33 +181,44 @@
   .instructors-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 980px;
   }
   .instructor-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 6px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
   }
   .instructor-photo {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    background: var(--border);
+    aspect-ratio: 3 / 4;
+    background: #e8e8e8;
     overflow: hidden;
     display: flex; align-items: center; justify-content: center;
     font-size: 40px;
   }
-  .instructor-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .instructor-info { padding: 12px 14px; }
-  .instructor-name { font-size: 16px; font-weight: 700; line-height: 1.2; margin-bottom: 3px; }
-  .instructor-rank { font-size: 12px; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
-  .instructor-role { font-size: 12px; color: var(--muted); line-height: 1.35; }
+  .instructor-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .instructor-info { padding: 12px 14px; background: #ffffff; }
+  .instructor-name { font-size: 16px; font-weight: 700; line-height: 1.2; margin-bottom: 3px; color: #222; }
+  .instructor-rank { font-size: 12px; color: var(--accent); font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .instructor-role { font-size: 12px; color: #666; line-height: 1.35; }
 
-  .sponsors-grid { width: 100%; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-  .sponsor-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 24px 36px; font-size: 22px; font-weight: 600; text-align: center; min-width: 200px; }
+  .sponsors-grid { width: 100%; display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: center; }
+  .sponsor-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 28px 40px;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    min-width: 220px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  }
+  .sponsor-card img { max-width: 180px; max-height: 90px; object-fit: contain; display: block; }
+  .sponsor-card .sponsor-name-fallback { font-size: 20px; font-weight: 700; color: #222; text-align: center; }
 
   /* ── GALLERY SLIDE (op til 20 billeder) ── */
   .slide-gallery { align-items: flex-start; }
@@ -808,7 +820,16 @@ function buildInfoSlide(s) {
     <div class="info-grid">${cards}</div></div>`;
 }
 function buildSponsorsSlide(s) {
-  const cards = (s.items||[]).map(item=>`<div class="sponsor-card">${item.value}</div>`).join('');
+  let cards;
+  if (s.sponsors && s.sponsors.length) {
+    cards = s.sponsors.map(sp => `
+      <div class="sponsor-card">
+        ${sp.logo ? `<img src="${sp.logo}" alt="${sp.name||''}">` : `<div class="sponsor-name-fallback">${sp.name||''}</div>`}
+      </div>`).join('');
+  } else {
+    // Backward compatibility with old text-only sponsor items
+    cards = (s.items||[]).map(item=>`<div class="sponsor-card"><div class="sponsor-name-fallback">${item.value}</div></div>`).join('');
+  }
   return `<div class="slide slide-info" data-id="${s.id}">
     <div class="slide-header">
       <div class="slide-icon">${s.icon||'🤝'}</div>
@@ -918,7 +939,19 @@ async function fetchFbRss(key) {
     fbCache[key] = posts;
     renderFbPosts(key, posts);
   } catch(e) {
-    if (container) container.innerHTML = `<div class="fb-error">⚠️ Kunne ikke hente Facebook-opslag.<br><small>${e.message}</small></div>`;
+    if (container) {
+      if (fbPageUrl) {
+        const qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=${encodeURIComponent(fbPageUrl)}`;
+        container.innerHTML = `
+          <div class="fb-fallback">
+            <div class="fb-fallback-qr"><img src="${qrApi}" alt="QR til Facebook"></div>
+            <div class="fb-fallback-text">Scan for at se ${pageName} på Facebook</div>
+            <div class="fb-fallback-sub">Opslag kunne ikke hentes automatisk</div>
+          </div>`;
+      } else {
+        container.innerHTML = `<div class="fb-error">⚠️ Kunne ikke hente Facebook-opslag.<br><small>${e.message}</small></div>`;
+      }
+    }
   }
 }
 function renderFbPosts(key, posts) {
