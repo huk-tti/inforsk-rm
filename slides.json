@@ -27,10 +27,14 @@
     }
   },
   "training_schedule": [
-    { "day": 1, "label": "Begyndere",          "start": "17:00", "end": "18:30" },
-    { "day": 1, "label": "Øvede",               "start": "18:30", "end": "20:00" },
-    { "day": 3, "label": "Alle hold",           "start": "17:00", "end": "19:00" },
-    { "day": 5, "label": "Konkurrencetræning",  "start": "17:00", "end": "19:00" }
+    { "day": 1, "label": "Kamphold",            "start": "17:00", "end": "20:00" },
+    { "day": 2, "label": "Begynder",             "start": "17:30", "end": "18:45" },
+    { "day": 2, "label": "Øvet",                 "start": "19:00", "end": "20:30" },
+    { "day": 4, "label": "Begynder",             "start": "17:30", "end": "18:45" },
+    { "day": 4, "label": "Øvet",                 "start": "19:00", "end": "20:30" },
+    { "day": 6, "label": "Kamphold",             "start": "09:00", "end": "14:00" },
+    { "day": 6, "label": "Begynder kamphold",    "start": "10:00", "end": "12:00" },
+    { "day": 0, "label": "Teknik",               "start": "10:00", "end": "11:30" }
   ],
   "slides": [
     {
@@ -47,10 +51,14 @@
       "title": "Træningstider",
       "icon": "🥋",
       "items": [
-        { "label": "Mandag", "value": "Begyndere kl. 17:00–18:30" },
-        { "label": "Mandag", "value": "Øvede kl. 18:30–20:00" },
-        { "label": "Onsdag", "value": "Alle hold kl. 17:00–19:00" },
-        { "label": "Fredag", "value": "Konkurrencetræning kl. 17:00–19:00" }
+        { "label": "Mandag", "value": "Kamphold kl. 17:00–20:00" },
+        { "label": "Tirsdag", "value": "Begynder kl. 17:30–18:45" },
+        { "label": "Tirsdag", "value": "Øvet kl. 19:00–20:30" },
+        { "label": "Torsdag", "value": "Begynder kl. 17:30–18:45" },
+        { "label": "Torsdag", "value": "Øvet kl. 19:00–20:30" },
+        { "label": "Lørdag", "value": "Kamphold kl. 09:00–14:00" },
+        { "label": "Lørdag", "value": "Begynder kamphold kl. 10:00–12:00" },
+        { "label": "Søndag", "value": "Teknik kl. 10:00–11:30" }
       ],
       "active": true
     },
@@ -60,7 +68,7 @@
       "title": "Kontakt & Info",
       "icon": "📋",
       "items": [
-        { "label": "Formand", "value": "Jens Christensen" },
+        { "label": "Formand", "value": "Jens Rudbeck" },
         { "label": "Træner", "value": "Se hjemmesiden" },
         { "label": "Hjemmeside", "value": "www.huk-tti.dk" },
         { "label": "Kontingent", "value": "Se opslag på hjemmesiden" }
@@ -86,7 +94,7 @@
       "icon": "🥋",
       "duration": 14000,
       "instructors": [
-        { "name": "Kasper Sig Pedersen", "rank": "Sabumnim 5. dan", "role": "Cheftræner - Teknik, Træner - Grundtræning", "photo": "" },
+        { "name": "Kasper Sig Pedersen", "rank": "Sabumnim 5. dan", "role": "Cheftræner - Teknik, Træner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/38587c05bc1aea8b5fd87fdac201245b.jpg" },
         { "name": "René Kjær", "rank": "Sabumnim 4. dan", "role": "Cheftræner grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/8636028f07808ac73fe1a420a29fb4d3.jpg" },
         { "name": "Natalie Rosendal Lauridsen", "rank": "Kyosanim 2. dan", "role": "Cheftræner - Kamp, Træner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/f4d021728450e09981eb0b84418aefe1.jpg" },
         { "name": "Lærke Vilstrup Jensen", "rank": "Kyosanim 1. dan", "role": "Hjælpetræner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/e6041b5fbf1416df0f7f8e06a63b6608.jpg" },
