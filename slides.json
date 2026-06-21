@@ -6,9 +6,9 @@
     "facebook_rss_1": "",
     "facebook_rss_2": "",
     "facebook_page_url_1": "https://www.facebook.com/BrandeTaekwondoKlub/",
-    "facebook_page_url_2": "https://www.facebook.com/dansktaekwondoforbund",
+    "facebook_page_url_2": "https://www.facebook.com/groups/huk.tii.medlemmer/",
     "facebook_page_name_1": "Brande Taekwondo Klub",
-    "facebook_page_name_2": "Dansk Taekwondo Forbund",
+    "facebook_page_name_2": "Medlemsside facebook",
     "colors": {
       "primary": "#0a1628",
       "accent": "#c8102e",
@@ -33,8 +33,7 @@
     { "day": 4, "label": "Begynder",             "start": "17:30", "end": "18:45" },
     { "day": 4, "label": "Øvet",                 "start": "19:00", "end": "20:30" },
     { "day": 6, "label": "Kamphold",             "start": "09:00", "end": "14:00" },
-    { "day": 6, "label": "Begynder kamphold",    "start": "10:00", "end": "12:00" },
-    { "day": 0, "label": "Teknik",               "start": "10:00", "end": "11:30" }
+    { "day": 6, "label": "Begynder kamphold",    "start": "10:00", "end": "12:00" }
   ],
   "slides": [
     {
@@ -57,8 +56,7 @@
         { "label": "Torsdag", "value": "Begynder kl. 17:30–18:45" },
         { "label": "Torsdag", "value": "Øvet kl. 19:00–20:30" },
         { "label": "Lørdag", "value": "Kamphold kl. 09:00–14:00" },
-        { "label": "Lørdag", "value": "Begynder kamphold kl. 10:00–12:00" },
-        { "label": "Søndag", "value": "Teknik kl. 10:00–11:30" }
+        { "label": "Lørdag", "value": "Begynder kamphold kl. 10:00–12:00" }
       ],
       "active": true
     },
@@ -81,9 +79,12 @@
       "title": "Kommende arrangementer",
       "icon": "📅",
       "items": [
-        { "label": "Sommerstævne", "value": "12. juli – Esbjerg" },
-        { "label": "Grading", "value": "20. august – Brande" },
-        { "label": "Klubmesterskab", "value": "Dato følger" }
+        { "label": "Sommerafslutning", "value": "25. juni – Brande" },
+           { "label": "Sommerlejr I Esbjerg", "value": "Uge 28, Kontakt Jens Rudbeck" },
+           { "label": "50 års Jubilæum", "value": "15. August – Brande" },
+        { "label": "Næste Kup Graduering", "value": "Oktober - Prøvegraduering i September" },
+         { "label": "Næste Dan Graduering", "value": "31. Oktober + 5. December" },
+        { "label": "Næste stævne", "value": "Fredericia Cup 26. September" }
       ],
       "active": true
     },
@@ -95,12 +96,11 @@
       "duration": 14000,
       "instructors": [
         { "name": "Kasper Sig Pedersen", "rank": "Sabumnim 5. dan", "role": "Cheftræner - Teknik, Træner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/38587c05bc1aea8b5fd87fdac201245b.jpg" },
-        { "name": "René Kjær", "rank": "Sabumnim 4. dan", "role": "Cheftræner grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/8636028f07808ac73fe1a420a29fb4d3.jpg" },
         { "name": "Natalie Rosendal Lauridsen", "rank": "Kyosanim 2. dan", "role": "Cheftræner - Kamp, Træner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/f4d021728450e09981eb0b84418aefe1.jpg" },
-        { "name": "Lærke Vilstrup Jensen", "rank": "Kyosanim 1. dan", "role": "Hjælpetræner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/e6041b5fbf1416df0f7f8e06a63b6608.jpg" },
         { "name": "Victor Skov Rudbeck", "rank": "Kyosanim 1. Poom", "role": "Hjælpetræner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/1259644c930fa33203880d12aeaa004e.jpg" },
         { "name": "Anna Westen", "rank": "Chogyonim 3. Kup", "role": "Hjælpetræner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/19735cbfdf76adf70b61a764ccc6876b.jpg" },
-        { "name": "Alberte Vestergaard", "rank": "Chogyonim 3. Kup", "role": "Hjælpetræner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/a2d2fc8f1e71a481669fe973106fa9ba.jpg" }
+        { "name": "Alberte Vestergaard", "rank": "Chogyonim 3. Kup", "role": "Hjælpetræner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/a2d2fc8f1e71a481669fe973106fa9ba.jpg" },
+     { "name": "Johan Damgaard", "rank": "Chogyonim 3. Kup", "role": "Hjælpetræner - Grundtræning", "photo": "" }
       ],
       "active": true
     },
@@ -135,7 +135,9 @@
       "title": "Vores sponsorer",
       "icon": "🤝",
       "items": [
-        { "label": "", "value": "Tilføj dine sponsorer her i slides.json" }
+        { "label": "", "value": "Give Steel" },
+         { "label": "", "value": "Danish Bottling" },
+         { "label": "", "value": "Vestjysk Bank" }
       ],
       "active": true
     }
