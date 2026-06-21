@@ -681,7 +681,7 @@ function setMode(mode) {
 
 function checkMode() {
   const now = new Date();
-  const inWindow = isInTrainingWindow(config?.training_schedule, now);
+  const inWindow = isInTrainingWindow(config && config.training_schedule, now);
   setMode(inWindow ? 'slideshow' : 'standby');
 }
 
@@ -720,7 +720,7 @@ function updateStandbyDynamic() {
   }
 
   // Rotate tagline
-  const taglines = config.settings?.standby?.taglines || [];
+  const taglines = (config.settings.standby && config.settings.standby.taglines) || [];
   if (taglines.length > 0) {
     const tEl = document.getElementById('sb-tagline');
     if (tEl) {
@@ -853,7 +853,7 @@ function buildGallerySlide(s) {
       </div>
       <div class="gallery-carousel" id="gallery-carousel-${s.id}">
         ${imgsHtml}
-        <div class="gallery-caption" id="gallery-caption-${s.id}">${images[0]?.caption||''}</div>
+        <div class="gallery-caption" id="gallery-caption-${s.id}">${(images[0] && images[0].caption) || ''}</div>
       </div>
     </div>`;
   }
@@ -1012,9 +1012,9 @@ function goToSlide(index) {
   dots.forEach((d,i) => d.classList.toggle('active', i===index));
   currentIndex = index;
   const active = slides[index];
-  if (active?.dataset.fb) fetchFbRss(active.dataset.fb);
+  if (active && active.dataset.fb) fetchFbRss(active.dataset.fb);
   clearInterval(galleryTimer);
-  if (active?.dataset.galleryCarousel) startGalleryCarousel(active);
+  if (active && active.dataset.galleryCarousel) startGalleryCarousel(active);
   startProgress();
 }
 function nextSlide() {
@@ -1042,13 +1042,24 @@ function startProgress() {
 // INIT
 // ══════════════════════════════════════════
 async function init() {
-  try {
-    const res = await fetch(CONFIG_URL+'?t='+Date.now());
-    config = await res.json();
-  } catch(e) {
-    document.getElementById('loading-screen').innerHTML =
-      '<div style="color:#c8102e;font-size:24px;text-align:center;padding:40px">⚠️ Kunne ikke indlæse slides.json<br><small style="color:#666">'+e.message+'</small></div>';
-    return;
+  let attempts = 0;
+  const maxAttempts = 10;
+  while (attempts < maxAttempts) {
+    try {
+      const res = await fetch(CONFIG_URL+'?t='+Date.now());
+      config = await res.json();
+      break;
+    } catch(e) {
+      attempts++;
+      if (attempts >= maxAttempts) {
+        document.getElementById('loading-screen').innerHTML =
+          '<div style="color:#c8102e;font-size:24px;text-align:center;padding:40px">⚠️ Kunne ikke indlæse slides.json<br><small style="color:#666">'+e.message+'</small><br><br><small style="color:#666">Genindlæser om 10 sekunder…</small></div>';
+        setTimeout(() => location.reload(), 10000);
+        return;
+      }
+      document.querySelector('.load-sub').textContent = 'INDLÆSER INFOSKÆRM… (forsøg '+(attempts+1)+'/'+maxAttempts+')';
+      await new Promise(r => setTimeout(r, 2000));
+    }
   }
 
   // Apply colors
