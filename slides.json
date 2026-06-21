@@ -33,7 +33,8 @@
     { "day": 4, "label": "Begynder",             "start": "17:30", "end": "18:45" },
     { "day": 4, "label": "Øvet",                 "start": "19:00", "end": "20:30" },
     { "day": 6, "label": "Kamphold",             "start": "09:00", "end": "14:00" },
-    { "day": 6, "label": "Begynder kamphold",    "start": "10:00", "end": "12:00" }
+    { "day": 6, "label": "Begynder kamphold",    "start": "10:00", "end": "12:00" },
+    { "day": 0, "label": "test af slideshow",    "start": "10:00", "end": "13:00" }
   ],
   "slides": [
     {
