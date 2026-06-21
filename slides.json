@@ -57,7 +57,8 @@
         { "label": "Torsdag", "value": "Begynder kl. 17:30–18:45" },
         { "label": "Torsdag", "value": "Øvet kl. 19:00–20:30" },
         { "label": "Lørdag", "value": "Kamphold kl. 09:00–14:00" },
-        { "label": "Lørdag", "value": "Begynder kamphold kl. 10:00–12:00" }
+        { "label": "Lørdag", "value": "Begynder kamphold kl. 10:00–12:00" },
+        { "label": "Søndag", "value": "Test af slideshow kl. 10:00–13:00" }
       ],
       "active": true
     },
