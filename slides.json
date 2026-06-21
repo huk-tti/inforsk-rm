@@ -25,10 +25,12 @@
     }
   },
   "training_schedule": [
-    { "day": 1, "label": "Begyndere",          "start": "17:00", "end": "18:30" },
-    { "day": 1, "label": "Øvede",               "start": "18:30", "end": "20:00" },
-    { "day": 3, "label": "Alle hold",           "start": "17:00", "end": "19:00" },
-    { "day": 5, "label": "Konkurrencetræning",  "start": "17:00", "end": "19:00" }
+    { "day": 1, "label": "Kamptræning",          "start": "17:30", "end": "20:00" },
+    { "day": 2, "label": "Begyndere",          "start": "17:30", "end": "18:45" },
+    { "day": 2, "label": "Øvede",               "start": "19:00", "end": "20:30" },
+    { "day": 4, "label": "Begyndere",           "start": "17:30", "end": "18:45" },
+    { "day": 4, "label": "Øvede",              "start": "19:00", "end": "20:30" },
+     { "day": 6, "label": "Kamptræning",         "start": "9:00", "end": "14:00" }
   ],
   "slides": [
     {
@@ -45,10 +47,12 @@
       "title": "Træningstider",
       "icon": "🥋",
       "items": [
-        { "label": "Mandag", "value": "Begyndere kl. 17:00–18:30" },
-        { "label": "Mandag", "value": "Øvede kl. 18:30–20:00" },
-        { "label": "Onsdag", "value": "Alle hold kl. 17:00–19:00" },
-        { "label": "Fredag", "value": "Konkurrencetræning kl. 17:00–19:00" }
+        { "label": "Mandag", "value": "Kamptræning kl. 17:30–20:00" },
+        { "label": "Tirsdag", "value": "Begynder kl. 17:30–18:45" },
+        { "label": "Tirsdag", "value": "Øvede kl. 19:00–20:30" },
+        { "label": "Torsdag", "value": "Begynder kl. 17:30–18:45" },
+         { "label": "Torsdag", "value": "Øvede kl. 19:00–20:30" },
+        { "label": "Lørdag", "value": "Kamptræning kl. 09:00–14:00" }
       ],
       "active": true
     },
@@ -58,8 +62,8 @@
       "title": "Kontakt & Info",
       "icon": "📋",
       "items": [
-        { "label": "Formand", "value": "Jens Christensen" },
-        { "label": "Træner", "value": "Se hjemmesiden" },
+        { "label": "Formand", "value": "Jens Rudbeck" },
+        { "label": "Instruktør", "value": "Se hjemmesiden" },
         { "label": "Hjemmeside", "value": "www.huk-tti.dk" },
         { "label": "Kontingent", "value": "Se opslag på hjemmesiden" }
       ],
