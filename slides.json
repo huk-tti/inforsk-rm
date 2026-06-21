@@ -3,9 +3,11 @@
     "club_name": "Brande Taekwondo Klub Hük-tti",
     "logo_url": "",
     "slide_duration": 8000,
-    "facebook_rss_1": "https://www.facebook.com/BrandeTaekwondoKlub",
-    "facebook_rss_2": "https://www.facebook.com/groups/202066449154",
-    "facebook_page_name_1": "Hük-tti Brande",
+    "facebook_rss_1": "",
+    "facebook_rss_2": "",
+    "facebook_page_url_1": "https://www.facebook.com/BrandeTaekwondoKlub/",
+    "facebook_page_url_2": "https://www.facebook.com/dansktaekwondoforbund",
+    "facebook_page_name_1": "Brande Taekwondo Klub",
     "facebook_page_name_2": "Dansk Taekwondo Forbund",
     "colors": {
       "primary": "#0a1628",
@@ -13,10 +15,10 @@
       "gold": "#f0b429"
     },
     "standby": {
-      "website": "www.huk-tti.dk",
-      "facebook": "facebook.com/huktti",
-      "phone": "",
-      "email": "",
+      "website": "huk-tti-brande.dk",
+      "facebook": "https://www.facebook.com/BrandeTaekwondoKlub/",
+      "phone": "31 61 25 85",
+      "email": "tkd@huk-tti-brande.dk",
       "taglines": [
         "Taekwondo for alle aldre",
         "Stiftet 1976 – 50 år med kampsport",
@@ -25,12 +27,10 @@
     }
   },
   "training_schedule": [
-    { "day": 1, "label": "Kamptræning",          "start": "17:30", "end": "20:00" },
-    { "day": 2, "label": "Begyndere",          "start": "17:30", "end": "18:45" },
-    { "day": 2, "label": "Øvede",               "start": "19:00", "end": "20:30" },
-    { "day": 4, "label": "Begyndere",           "start": "17:30", "end": "18:45" },
-    { "day": 4, "label": "Øvede",              "start": "19:00", "end": "20:30" },
-     { "day": 6, "label": "Kamptræning",         "start": "9:00", "end": "14:00" }
+    { "day": 1, "label": "Begyndere",          "start": "17:00", "end": "18:30" },
+    { "day": 1, "label": "Øvede",               "start": "18:30", "end": "20:00" },
+    { "day": 3, "label": "Alle hold",           "start": "17:00", "end": "19:00" },
+    { "day": 5, "label": "Konkurrencetræning",  "start": "17:00", "end": "19:00" }
   ],
   "slides": [
     {
@@ -47,12 +47,10 @@
       "title": "Træningstider",
       "icon": "🥋",
       "items": [
-        { "label": "Mandag", "value": "Kamptræning kl. 17:30–20:00" },
-        { "label": "Tirsdag", "value": "Begynder kl. 17:30–18:45" },
-        { "label": "Tirsdag", "value": "Øvede kl. 19:00–20:30" },
-        { "label": "Torsdag", "value": "Begynder kl. 17:30–18:45" },
-         { "label": "Torsdag", "value": "Øvede kl. 19:00–20:30" },
-        { "label": "Lørdag", "value": "Kamptræning kl. 09:00–14:00" }
+        { "label": "Mandag", "value": "Begyndere kl. 17:00–18:30" },
+        { "label": "Mandag", "value": "Øvede kl. 18:30–20:00" },
+        { "label": "Onsdag", "value": "Alle hold kl. 17:00–19:00" },
+        { "label": "Fredag", "value": "Konkurrencetræning kl. 17:00–19:00" }
       ],
       "active": true
     },
@@ -62,8 +60,8 @@
       "title": "Kontakt & Info",
       "icon": "📋",
       "items": [
-        { "label": "Formand", "value": "Jens Rudbeck" },
-        { "label": "Instruktør", "value": "Se hjemmesiden" },
+        { "label": "Formand", "value": "Jens Christensen" },
+        { "label": "Træner", "value": "Se hjemmesiden" },
         { "label": "Hjemmeside", "value": "www.huk-tti.dk" },
         { "label": "Kontingent", "value": "Se opslag på hjemmesiden" }
       ],
@@ -78,6 +76,23 @@
         { "label": "Sommerstævne", "value": "12. juli – Esbjerg" },
         { "label": "Grading", "value": "20. august – Brande" },
         { "label": "Klubmesterskab", "value": "Dato følger" }
+      ],
+      "active": true
+    },
+    {
+      "id": "instructors",
+      "type": "instructors",
+      "title": "Vores instruktører",
+      "icon": "🥋",
+      "duration": 14000,
+      "instructors": [
+        { "name": "Kasper Sig Pedersen", "rank": "Sabumnim 5. dan", "role": "Cheftræner - Teknik, Træner - Grundtræning", "photo": "" },
+        { "name": "René Kjær", "rank": "Sabumnim 4. dan", "role": "Cheftræner grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/8636028f07808ac73fe1a420a29fb4d3.jpg" },
+        { "name": "Natalie Rosendal Lauridsen", "rank": "Kyosanim 2. dan", "role": "Cheftræner - Kamp, Træner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/f4d021728450e09981eb0b84418aefe1.jpg" },
+        { "name": "Lærke Vilstrup Jensen", "rank": "Kyosanim 1. dan", "role": "Hjælpetræner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/e6041b5fbf1416df0f7f8e06a63b6608.jpg" },
+        { "name": "Victor Skov Rudbeck", "rank": "Kyosanim 1. Poom", "role": "Hjælpetræner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/1259644c930fa33203880d12aeaa004e.jpg" },
+        { "name": "Anna Westen", "rank": "Chogyonim 3. Kup", "role": "Hjælpetræner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/19735cbfdf76adf70b61a764ccc6876b.jpg" },
+        { "name": "Alberte Vestergaard", "rank": "Chogyonim 3. Kup", "role": "Hjælpetræner - Grundtræning", "photo": "https://huk-tti-brande.dk/resources/cms/images/a2d2fc8f1e71a481669fe973106fa9ba.jpg" }
       ],
       "active": true
     },

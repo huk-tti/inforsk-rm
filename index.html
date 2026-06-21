@@ -159,6 +159,51 @@
   .fb-post-text  { font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.9); display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
   .fb-loading { width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 40px; color: var(--muted); font-size: 16px; }
   .fb-error { background: rgba(200,16,46,0.1); border: 1px solid rgba(200,16,46,0.3); border-radius: 8px; padding: 20px; color: var(--muted); font-size: 15px; line-height: 1.5; width: 100%; }
+  .fb-fallback {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 18px; text-align: center;
+    grid-column: 1 / -1;
+  }
+  .fb-fallback-qr {
+    background: #fff; border-radius: 14px; padding: 16px;
+    width: 160px; height: 160px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .fb-fallback-qr img { width: 100%; height: 100%; }
+  .fb-fallback-text { font-size: 20px; font-weight: 600; }
+  .fb-fallback-sub { font-size: 14px; color: var(--muted); }
+
+  /* ── INSTRUCTORS SLIDE ── */
+  .slide-instructors { align-items: flex-start; }
+  .instructors-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .instructor-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .instructor-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--border);
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px;
+  }
+  .instructor-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .instructor-info { padding: 12px 14px; }
+  .instructor-name { font-size: 16px; font-weight: 700; line-height: 1.2; margin-bottom: 3px; }
+  .instructor-rank { font-size: 12px; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
+  .instructor-role { font-size: 12px; color: var(--muted); line-height: 1.35; }
 
   .sponsors-grid { width: 100%; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
   .sponsor-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 24px 36px; font-size: 22px; font-weight: 600; text-align: center; min-width: 200px; }
@@ -317,6 +362,17 @@
     background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 8px; padding: 14px 20px;
   }
+  .sb-link-row.has-qr { justify-content: space-between; }
+  .sb-link-main { display: flex; align-items: center; gap: 14px; }
+  .sb-qr-box {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 6px;
+    width: 64px; height: 64px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sb-qr-box canvas, .sb-qr-box img { width: 100%; height: 100%; display: block; }
   .sb-link-icon { font-size: 22px; flex-shrink: 0; }
   .sb-link-label { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); }
   .sb-link-value { font-size: 18px; font-weight: 700; color: var(--text); }
@@ -440,19 +496,25 @@
       <div>
         <div class="sb-section-label">Find os her</div>
         <div class="sb-links">
-          <div class="sb-link-row">
-            <div class="sb-link-icon">🌐</div>
-            <div>
-              <div class="sb-link-label">Hjemmeside</div>
-              <div class="sb-link-value" id="sb-website">www.huk-tti.dk</div>
+          <div class="sb-link-row has-qr">
+            <div class="sb-link-main">
+              <div class="sb-link-icon">🌐</div>
+              <div>
+                <div class="sb-link-label">Hjemmeside</div>
+                <div class="sb-link-value" id="sb-website">www.huk-tti.dk</div>
+              </div>
             </div>
+            <div class="sb-qr-box" id="sb-qr-website"></div>
           </div>
-          <div class="sb-link-row" id="sb-fb-row" style="display:none">
-            <div class="sb-link-icon">📘</div>
-            <div>
-              <div class="sb-link-label">Facebook</div>
-              <div class="sb-link-value" id="sb-facebook">–</div>
+          <div class="sb-link-row has-qr" id="sb-fb-row" style="display:none">
+            <div class="sb-link-main">
+              <div class="sb-link-icon">📘</div>
+              <div>
+                <div class="sb-link-label">Facebook</div>
+                <div class="sb-link-value" id="sb-facebook">–</div>
+              </div>
             </div>
+            <div class="sb-qr-box" id="sb-qr-facebook"></div>
           </div>
           <div class="sb-link-row" id="sb-phone-row" style="display:none">
             <div class="sb-link-icon">📞</div>
@@ -660,6 +722,19 @@ function updateStandbyDynamic() {
   }
 }
 
+function toFullUrl(val) {
+  if (!val) return '';
+  if (val.startsWith('http://') || val.startsWith('https://')) return val;
+  return 'https://' + val;
+}
+function renderQrCode(elId, url) {
+  const el = document.getElementById(elId);
+  if (!el || !url) return;
+  const size = 120;
+  const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&margin=0&data=${encodeURIComponent(url)}`;
+  el.innerHTML = `<img src="${apiUrl}" alt="QR kode">`;
+}
+
 function populateStandby() {
   if (!config) return;
   const s = config.settings;
@@ -695,6 +770,10 @@ function populateStandby() {
   showIfSet('sb-facebook',  'sb-fb-row',    sb.facebook);
   showIfSet('sb-phone',     'sb-phone-row', sb.phone);
   showIfSet('sb-email',     'sb-email-row', sb.email);
+
+  // QR codes for website + facebook
+  renderQrCode('sb-qr-website', toFullUrl(sb.website));
+  if (sb.facebook) renderQrCode('sb-qr-facebook', toFullUrl(sb.facebook));
 
   // Initial tagline
   const taglines = sb.taglines || [];
@@ -771,6 +850,24 @@ function buildGallerySlide(s) {
     <div class="gallery-grid count-${count}">${items}</div>
   </div>`;
 }
+function buildInstructorsSlide(s) {
+  const cards = (s.instructors||[]).map(inst => `
+    <div class="instructor-card">
+      <div class="instructor-photo">${inst.photo ? `<img src="${inst.photo}" alt="${inst.name}" loading="lazy">` : '🥋'}</div>
+      <div class="instructor-info">
+        <div class="instructor-name">${inst.name}</div>
+        ${inst.rank ? `<div class="instructor-rank">${inst.rank}</div>` : ''}
+        ${inst.role ? `<div class="instructor-role">${inst.role}</div>` : ''}
+      </div>
+    </div>`).join('');
+  return `<div class="slide slide-instructors" data-id="${s.id}">
+    <div class="slide-header">
+      <div class="slide-icon">${s.icon||'🥋'}</div>
+      <div><div class="slide-title">${s.title||'Vores instruktører'}</div><div class="slide-title-bar"></div></div>
+    </div>
+    <div class="instructors-grid">${cards}</div>
+  </div>`;
+}
 function buildFacebookSlide(s) {
   const key = s.page_key;
   const pageName = config.settings[`facebook_page_name_${key}`]||`Facebook side ${key}`;
@@ -790,9 +887,23 @@ function buildFacebookSlide(s) {
 async function fetchFbRss(key) {
   if (fbCache[key]) { renderFbPosts(key, fbCache[key]); return; }
   const rssUrl = config.settings[`facebook_rss_${key}`];
+  const fbPageUrl = config.settings[`facebook_page_url_${key}`];
+  const pageName = config.settings[`facebook_page_name_${key}`]||`Facebook side ${key}`;
   const container = document.getElementById(`fb-posts-${key}`);
   if (!rssUrl) {
-    if (container) container.innerHTML = `<div class="fb-error">📋 <strong>Opsætning nødvendig</strong><br><br>Tilføj din Facebook RSS-URL i <code>slides.json</code> under <code>"facebook_rss_${key}"</code><br><br>Brug fx <strong>rsshub.app</strong> til at generere et RSS-feed.</div>`;
+    if (container) {
+      if (fbPageUrl) {
+        const qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=${encodeURIComponent(fbPageUrl)}`;
+        container.innerHTML = `
+          <div class="fb-fallback">
+            <div class="fb-fallback-qr"><img src="${qrApi}" alt="QR til Facebook"></div>
+            <div class="fb-fallback-text">Scan for at se ${pageName} på Facebook</div>
+            <div class="fb-fallback-sub">${fbPageUrl}</div>
+          </div>`;
+      } else {
+        container.innerHTML = `<div class="fb-error">📋 <strong>Opsætning nødvendig</strong><br><br>Tilføj din Facebook-side URL i <code>slides.json</code> under <code>"facebook_page_url_${key}"</code>, eller et RSS-feed under <code>"facebook_rss_${key}"</code>.</div>`;
+      }
+    }
     return;
   }
   try {
@@ -930,6 +1041,7 @@ async function init() {
       case 'facebook':   return buildFacebookSlide(s);
       case 'sponsors':   return buildSponsorsSlide(s);
       case 'gallery':    return buildGallerySlide(s);
+      case 'instructors': return buildInstructorsSlide(s);
       default:           return buildInfoSlide(s);
     }
   }).join('');
