@@ -71,6 +71,12 @@
     background: var(--accent); border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 26px; flex-shrink: 0;
+    overflow: hidden;
+  }
+  .topbar-logo .emblem img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
   }
   .topbar-club {
     font-family: 'Bebas Neue', sans-serif;
@@ -362,7 +368,7 @@
 <div class="screen hidden" id="slideshow">
   <div class="topbar">
     <div class="topbar-logo">
-      <div class="emblem">🥋</div>
+      <div class="emblem"><img src="images/logo.jpg" alt="Hük-tti logo"></div>
       <div>
         <div class="topbar-club" id="ss-club-name">Brande Taekwondo Klub</div>
         <div class="topbar-sub" id="ss-club-sub">Hük-tti • Stiftet 1976</div>
@@ -385,7 +391,7 @@
 <div class="screen hidden" id="standby">
   <div class="topbar">
     <div class="topbar-logo">
-      <div class="emblem">🥋</div>
+      <div class="emblem"><img src="images/logo.jpg" alt="Hük-tti logo"></div>
       <div>
         <div class="topbar-club" id="sb-club-name">Brande Taekwondo Klub</div>
         <div class="topbar-sub" id="sb-club-sub">Hük-tti • Stiftet 1976</div>
