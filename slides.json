@@ -1,0 +1,116 @@
+{
+  "settings": {
+    "club_name": "Brande Taekwondo Klub Hük-tti",
+    "logo_url": "",
+    "slide_duration": 8000,
+    "facebook_rss_1": "",
+    "facebook_rss_2": "",
+    "facebook_page_name_1": "Hük-tti Brande",
+    "facebook_page_name_2": "Dansk Taekwondo Forbund",
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c8102e",
+      "gold": "#f0b429"
+    },
+    "standby": {
+      "website": "www.huk-tti.dk",
+      "facebook": "facebook.com/huktti",
+      "phone": "",
+      "email": "",
+      "taglines": [
+        "Taekwondo for alle aldre",
+        "Stiftet 1976 – 50 år med kampsport",
+        "Kom og prøv en gratis træning!"
+      ]
+    }
+  },
+  "training_schedule": [
+    { "day": 1, "label": "Begyndere",          "start": "17:00", "end": "18:30" },
+    { "day": 1, "label": "Øvede",               "start": "18:30", "end": "20:00" },
+    { "day": 3, "label": "Alle hold",           "start": "17:00", "end": "19:00" },
+    { "day": 5, "label": "Konkurrencetræning",  "start": "17:00", "end": "19:00" }
+  ],
+  "slides": [
+    {
+      "id": "welcome",
+      "type": "welcome",
+      "title": "Velkommen til",
+      "subtitle": "Brande Taekwondo Klub",
+      "tagline": "Hük-tti • Stiftet 1976",
+      "active": true
+    },
+    {
+      "id": "info1",
+      "type": "info",
+      "title": "Træningstider",
+      "icon": "🥋",
+      "items": [
+        { "label": "Mandag", "value": "Begyndere kl. 17:00–18:30" },
+        { "label": "Mandag", "value": "Øvede kl. 18:30–20:00" },
+        { "label": "Onsdag", "value": "Alle hold kl. 17:00–19:00" },
+        { "label": "Fredag", "value": "Konkurrencetræning kl. 17:00–19:00" }
+      ],
+      "active": true
+    },
+    {
+      "id": "info2",
+      "type": "info",
+      "title": "Kontakt & Info",
+      "icon": "📋",
+      "items": [
+        { "label": "Formand", "value": "Jens Christensen" },
+        { "label": "Træner", "value": "Se hjemmesiden" },
+        { "label": "Hjemmeside", "value": "www.huk-tti.dk" },
+        { "label": "Kontingent", "value": "Se opslag på hjemmesiden" }
+      ],
+      "active": true
+    },
+    {
+      "id": "info3",
+      "type": "image_text",
+      "title": "Kommende arrangementer",
+      "icon": "📅",
+      "items": [
+        { "label": "Sommerstævne", "value": "12. juli – Esbjerg" },
+        { "label": "Grading", "value": "20. august – Brande" },
+        { "label": "Klubmesterskab", "value": "Dato følger" }
+      ],
+      "active": true
+    },
+    {
+      "id": "facebook1",
+      "type": "facebook",
+      "page_key": "1",
+      "active": true
+    },
+    {
+      "id": "facebook2",
+      "type": "facebook",
+      "page_key": "2",
+      "active": true
+    },
+    {
+      "id": "gallery1",
+      "type": "gallery",
+      "title": "Billeder fra klubben",
+      "icon": "📸",
+      "duration": 12000,
+      "images": [
+        { "url": "https://example.com/billede1.jpg", "caption": "Sommerstævne 2025" },
+        { "url": "https://example.com/billede2.jpg", "caption": "Grading august" },
+        { "url": "https://example.com/billede3.jpg", "caption": "" }
+      ],
+      "active": false
+    },
+    {
+      "id": "sponsors",
+      "type": "sponsors",
+      "title": "Vores sponsorer",
+      "icon": "🤝",
+      "items": [
+        { "label": "", "value": "Tilføj dine sponsorer her i slides.json" }
+      ],
+      "active": true
+    }
+  ]
+}
